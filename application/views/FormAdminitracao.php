@@ -6,7 +6,7 @@
             echo (isset($mensagem) ? '<div class="alert alert-success" role="alert">' . $mensagem . '</div>' : '');
             ?>  
             <form action = "" method = "post" enctype="multipart/form-data">
-                <input type = "hidden" name = "id" value = "<?= (isset($equipe)) ? $equipe->id : ''; ?>">
+                <input type = "hidden" name = "id" value = "<?= (isset($administracao)) ? $administracao->id : ''; ?>">
 
                 <div class="form-group">
                     <label for = "tx_nome"> Nome:</label>
@@ -40,7 +40,7 @@
 
                 <div class="form-group">
                     <label for = "atores"> Atores:</label>
-                    <input type = "text" name = "atores"  class="form-control" id = "atores" value = "<?= (isset($administracaofm)) ? $administracao->atores : ''; ?>">
+                    <input type = "text" name = "atores"  class="form-control" id = "atores" value = "<?= (isset($administracao)) ? $administracao->atores : ''; ?>">
                 </div>
 
                 <div class="form-group">
@@ -52,7 +52,6 @@
                     <label for = "imagem"> Imagem:</label>
                     <input type = "file" name = "imagem"  class="form-control" id = "imagem" value = "">
                 </div>
-
 
                 <button type="submit" class="btn btn-success"><i class="fas fa-check"></i> Enviar</button>
                 <button type="reset" class="btn btn-outline-secondary"><i class="fas fa-redo"></i> Limpar</button> 

@@ -5,18 +5,19 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Administracao extends CI_Controller {
 
     public function index() {
-        $this->load->view('Administracao_model');
+        $this->listar();
     }
 
     public function __construct() {
         parent::__construct();
+        $this->load->helper('url');
         $this->load->model('Administracao_model');
     }
 
     public function listar() {
-        $fl['filme'] = $this->Administracao_model->getAll();
+        $fm['filme'] = $this->Administracao_model->getAll();
         $this->load->view('Header');
-        $this->load->view('ListaAdministracao', $fl);
+        $this->load->view('ListaAdministracao', $fm);
         $this->load->view('Footer');
     }
 
@@ -33,13 +34,12 @@ class Administracao extends CI_Controller {
         $this->form_validation->set_rules('imagem', 'imagem', 'required');
 
         if ($this->form_validation->run() === FALSE) {
-            $dd['filme'] = $this->Administracao_model->getAll();
             $this->load->view('Header');
-            $this->load->view('FormAdministracao', $dd);
+            $this->load->view('FormAdministracao');
             $this->load->view('Footer');
         } else {
 
-            $fl = array(
+            $fm = array(
                 'tx_nome' => $this->input->post('tx_nome'),
                 'sp_sinopse' => $this->input->post('sp_sinopse'),
                 'tx_duracao' => $this->input->post('tx_duracao'),
@@ -65,12 +65,12 @@ class Administracao extends CI_Controller {
                 exit();
             } else {
                 //pega o nome do arquivo que foi enviado e adiciona no array $data para que a variavel
-                $fl['imagem'] = $this->upload->data('file_name');
+                $fm['imagem'] = $this->upload->data('file_name');
             }
 
             if ($this->Administracao_model->insert($fm)) {
                 //salva uma mensagem na sessão
-                $this->session->set_flashdata('mensagem', 'Cadastrada com sucesso');
+                $this->session->set_flashdata('mensagem', 'Cadastrado com sucesso');
                 redirect('Administracao/listar'); //se der certo manda para a lista
             } else {
                 unlink('./uploads/' . $data['imagem']);
@@ -87,8 +87,8 @@ class Administracao extends CI_Controller {
         }
     }
 
-    public function alterar($fm) {
-        if ($fm > 0) {
+    public function alterar($id) {
+        if ($id > 0) {
 
             $this->form_validation->set_rules('tx_nome', 'tx_nome', 'required');
             $this->form_validation->set_rules('sp_sinopse', 'sp_sinopse', 'required');
@@ -102,12 +102,12 @@ class Administracao extends CI_Controller {
 
             if ($this->form_validation->run() === false) {
 
-                $fl['administracao'] = $this->Administracao_model->getOne($fm);
+                $fm['administracao'] = $this->Administracao_model->getOne($id);
                 $this->load->view('Header');
-                $this->load->view('FormAdministracao', $fl);
+                $this->load->view('FormAdministracao', $fm);
                 $this->load->view('Footer');
             } else {
-                $fl = array(
+                $fm = array(
                     'tx_nome' => $this->input->post('tx_nome'),
                     'sp_sinopse' => $this->input->post('sp_sinopse'),
                     'tx_duracao' => $this->input->post('tx_duracao'),
@@ -133,15 +133,15 @@ class Administracao extends CI_Controller {
                     exit();
                 } else {
                     //pega o nome do arquivo que foi enviado e adiciona no array $data para que a variavel
-                    $fl['imagem'] = $this->upload->data('file_name');
+                    $fm['imagem'] = $this->upload->data('file_name');
                 }
 
-                if ($this->Administracao_model->update($fm, $fl)) {
-                    $this->session->set_flashdata('mensagem', 'Filme alterada com sucesso!!!');
+                if ($this->Administracao_model->update($id, $fm)) {
+                    $this->session->set_flashdata('mensagem', 'Filme alterado com sucesso!!!');
                     redirect('Administracao/listar');
                 } else {
                     $this->session->set_flashdata('mensagem', 'Erro ao alterar!!!');
-                    redirect('Administracao/alterar/' . $fl);
+                    redirect('Administracao/alterar/' . $id);
                 }
             }
         } else {
@@ -149,11 +149,10 @@ class Administracao extends CI_Controller {
         }
     }
 
-    public function deletar($fm) {
-        $administracao = $this->Administracao_model->getOne($fl);
-        if ($fm > 0) {
-            if ($this->Administracao_model->delete($fm)) {
-                $this->session->set_flashdata('mensagem', 'Filme deletada com sucesso!');
+    public function deletar($id) {
+        if ($id > 0) {
+            if ($this->Administracao_model->delete($id)) {
+                $this->session->set_flashdata('mensagem', 'Filme deletado com sucesso!');
                 unlink('./uploads/' . $administracao->imagem);
             } else {
                 $this->session->set_flashdata('mensagem', 'Falha ao deletar o Filme!');
