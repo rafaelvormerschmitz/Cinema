@@ -28,10 +28,17 @@
                     foreach ($filme as $fm) {
                         echo '<tr>';
                         echo '<td>' . $fm->tx_nome . '</td>';
+                        echo '<td>' . $fm->sp_sinopse . '</td>';
+                        echo '<td>' . $fm->tx_duracao . '</td>';
+                        echo '<td>' . $fm->tx_companhia . '</td>';
+                        echo '<td>' . $fm->tx_genero . '</td>';
+                        echo '<td>' . $fm->tx_status . '</td>';
+                        echo '<td>' . $fm->tx_diretor . '</td>';
+                        echo '<td>' . $fm->atores . '</td>';
                         echo '<td> <img src="' . base_url('uploads/' . $fm->imagem) . '" height="50"></td>';
                         echo '<td>'
-                        . '<a class="btn btn-outline-light" href="' . base_url('administracao/alterar/' . $fm->id) . '"> <i class="fas fa-exchange-alt"></i>  Alterar</a>'
-                        . '<a class="btn btn-danger" href="' . base_url('administracao/alterar/' . $fm->id) .  '"> <i class="fas fa-trash-alt"></i>    Deletar</a>'
+                        . '<a class="btn btn-outline-light" href="' . base_url('administracao/alterar/' . $fm->tx_nome) . '"> <i class="fas fa-exchange-alt"></i>  Alterar</a>'
+                        . '<a class="btn btn-danger" href="' . base_url('administracao/alterar/' . $fm->tx_nome) . '"> <i class="fas fa-trash-alt"></i>    Deletar</a>'
                         . '</td>';
                         echo '</tr>';
                     }
