@@ -12,6 +12,7 @@
                     <tr>
                         <th scope="col"><i class="fas fa-anchor"></i> Nome</th>
                         <th scope="col"> Duração</th>
+                        <th scope="col"> Classificação</th>
                         <th scope="col"> Sinopse<th>
                         <th scope="col"> Companhia<th>
                         <th scope="col"> Gênero<th>
@@ -30,6 +31,7 @@
                         echo '<td>' . $fm->tx_nome . '</td>';
                         echo '<td>' . $fm->sp_sinopse . '</td>';
                         echo '<td>' . $fm->tx_duracao . '</td>';
+                        echo '<td>' . $fm->classificacao . '</td>';
                         echo '<td>' . $fm->tx_companhia . '</td>';
                         echo '<td>' . $fm->tx_genero . '</td>';
                         echo '<td>' . $fm->tx_status . '</td>';

@@ -32,6 +32,7 @@ class Administracao extends CI_Controller {
         $this->form_validation->set_rules('tx_diretor', 'tx_diretor', 'required');
         $this->form_validation->set_rules('atores', 'atores', 'required');
         $this->form_validation->set_rules('imagem', 'imagem', 'required');
+        $this->form_validation->set_rules('classificacao', 'clasificacao', 'required');
 
         if ($this->form_validation->run() === FALSE) {
             $this->load->view('Header');
@@ -49,6 +50,7 @@ class Administracao extends CI_Controller {
                 'tx_diretor' => $this->input->post('tx_diretor'),
                 'tx_diretor' => $this->input->post('atores'),
                 'imagem' => $this->input->post('imagem'),
+                'imagem' => $this->input->post('classificacao'),
             );
 
             $config['upload_path'] = './uploads/';
@@ -99,6 +101,7 @@ class Administracao extends CI_Controller {
             $this->form_validation->set_rules('tx_diretor', 'tx_diretor', 'required');
             $this->form_validation->set_rules('atores', 'atores', 'required');
             $this->form_validation->set_rules('imagem', 'imagem', 'required');
+            $this->form_validation->set_rules('classificacao', 'clasificacao', 'required');
 
             if ($this->form_validation->run() === false) {
 
@@ -117,6 +120,7 @@ class Administracao extends CI_Controller {
                     'tx_diretor' => $this->input->post('tx_diretor'),
                     'atores' => $this->input->post('atores'),
                     'imagem' => $this->input->post('imagem'),
+                    'imagem' => $this->input->post('classificacao'),
                 );
 
                 $config['upload_path'] = './uploads/';

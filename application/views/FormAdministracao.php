@@ -17,6 +17,12 @@
                     <label for = "tx_duracao"> Duração:</label>
                     <input type = "text" name = "tx_duracao"  class="form-control" id = "tx_duracao" value = "<?= (isset($administracao)) ? $administracao->tx_duracao : ''; ?>">
                 </div>
+                
+                <div class="form-group">
+                    <label for = "classificacao"> Classificação::</label>
+                    <input type = "text" name = "classificacao"  class="form-control" id = "classificacao" value = "<?= (isset($administracao)) ? $administracao->classificacao : ''; ?>">
+                </div>
+
 
                 <div class="form-group">
                     <label for = "sp_sinopse"> Sinopse:</label>
