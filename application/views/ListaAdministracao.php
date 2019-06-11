@@ -1,6 +1,6 @@
 <div class="container">
     <div class="conntainer">
-        <h1>Lista de Equipe</h1>
+        <h1>Lista de Filmes</h1>
         <?php
         $mensagem = $this->session->flashdata('mensagem');
         echo (isset($mensagem) ? '<div class="alert alert-success" role="alert">' . $mensagem . '</div>' : '');

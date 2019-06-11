@@ -2,7 +2,7 @@
 
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Administracao extends CI_Controller {
+class Cliente extends CI_Controller {
 
     public function index() {
         $this->listar();
@@ -12,81 +12,48 @@ class Administracao extends CI_Controller {
         parent::__construct();
         $this->load->helper(array('form', 'url'));
         $this->load->library('form_validation');
-        $this->load->model('Administracao_model');
+        $this->load->model('Cliente_model');
     }
 
     public function listar() {
-        $fm['filme'] = $this->Administracao_model->getAll();
+        $cl['cliente'] = $this->Cliente_model->getAll();
         $this->load->view('Header');
-        $this->load->view('ListaAdministracao', $fm);
+        $this->load->view('ListaCliente', $cl);
         $this->load->view('Footer');
     }
 
     public function cadastrar() {
 
-        $this->form_validation->set_rules('tx_nome', 'tx_nome', 'required');
-        $this->form_validation->set_rules('sp_sinopse', 'sp_sinopse', 'required');
-        $this->form_validation->set_rules('tx_duracao', 'tx_duracao', 'required');
-        $this->form_validation->set_rules('tx_companhia', 'tx_companhia', 'required');
-        $this->form_validation->set_rules('tx_genero', 'tx_genero', 'required');
-        $this->form_validation->set_rules('tx_status', 'tx_status', 'required');
-        $this->form_validation->set_rules('tx_diretor', 'tx_diretor', 'required');
-        $this->form_validation->set_rules('atores', 'atores', 'required');
-        $this->form_validation->set_rules('imagem', 'imagem', 'required');
-        $this->form_validation->set_rules('classificacao', 'clasificacao', 'required');
+        $this->form_validation->set_rules('nome', 'nome', 'required');
+        $this->form_validation->set_rules('sobrenome', 'sobrenome', 'required');
+        $this->form_validation->set_rules('CPF', 'CPF', 'required');
+        $this->form_validation->set_rules('sexo', 'sexo', 'required');
+        $this->form_validation->set_rules('endereco', 'endereco', 'required');
+        $this->form_validation->set_rules('estado', 'estado', 'required');
+        $this->form_validation->set_rules('cidade', 'cidade', 'required');
+        $this->form_validation->set_rules('cep', 'cep', 'required');
+        $this->form_validation->set_rules('telefone', 'telefone', 'required');
+        $this->form_validation->set_rules('email', 'email', 'required');
+        $this->form_validation->set_rules('nascimento', 'nascimento', 'required');
 
         if ($this->form_validation->run() === FALSE) {
             $this->load->view('Header');
-            $this->load->view('FormAdministracao');
+            $this->load->view('FormCliente');
             $this->load->view('Footer');
         } else {
 
-            $fm = array(
-                'tx_nome' => $this->input->post('tx_nome'),
-                'sp_sinopse' => $this->input->post('sp_sinopse'),
-                'tx_duracao' => $this->input->post('tx_duracao'),
-                'tx_companhia' => $this->input->post('tx_companhia'),
-                'tx_genero' => $this->input->post('tx_genero'),
-                'tx_status' => $this->input->post('tx_status'),
-                'tx_diretor' => $this->input->post('tx_diretor'),
-                'tx_diretor' => $this->input->post('atores'),
-                'imagem' => $this->input->post('imagem'),
-                'imagem' => $this->input->post('classificacao'),
+            $cl = array(
+                'nome' => $this->input->post('nome'),
+                'sobrenome' => $this->input->post('sobrenome'),
+                'CPF' => $this->input->post('CPF'),
+                'endereco' => $this->input->post('endereco'),
+                'estado' => $this->input->post('estado'),
+                'cidade' => $this->input->post('cidade'),
+                'cep' => $this->input->post('cep'),
+                'telefone' => $this->input->post('telefone'),
+                'email' => $this->input->post('email'),
+                'nascimento' => $this->input->post('nascimento'),
             );
-
-            $config['upload_path'] = './uploads/';
-            $config['allowed_types'] = 'gif|jpg|png';
-            $config['max_whidth'] = 1024;
-            $config['max_height'] = 768;
-            $config['encrypt_name'] = true;
-            $this->load->library('upload', $config);
-            if (!$this->upload->do_upload('imagem')) {
-                $error = $this->upload->display_errors();
-                //cria uma sessão com o error e redireciona
-                $this->session->set_flashdata('mensagem', $error);
-                redirect('Administracao/listar'); //se der certo manda para a lista
-                exit();
-            } else {
-                //pega o nome do arquivo que foi enviado e adiciona no array $data para que a variavel
-                $fm['imagem'] = $this->upload->data('file_name');
-            }
-
-            if ($this->Administracao_model->insert($fm)) {
-                //salva uma mensagem na sessão
-                $this->session->set_flashdata('mensagem', 'Cadastrado com sucesso');
-                redirect('Administracao/listar'); //se der certo manda para a lista
-            } else {
-                unlink('./uploads/' . $data['imagem']);
-                $this->session->set_flashdata('mensagem', 'Não deu');
-                redirect('Administracao/cadastrar');
-            }
-            /* if ($this->Administracao_model->insert($fm)) {
-              $this->session->set_flashdata('mensagem', 'Filme cadastrado com sucesso!!');
-              redirect('Administracao/listar');
-              } else {
-              redirect('Administracao/cadastrar');
-              $this->session->set_flashdata('mensagem', 'Erro ao cadastrar o Filme!!');
-              } */
         }
     }
 
@@ -132,12 +99,12 @@ class Administracao extends CI_Controller {
                 $this->load->library('upload', $config);
                 if (!$this->upload->do_upload('imagem')) {
                     $error = $this->upload->display_errors();
-                    //cria uma sessão com o error e redireciona
+//cria uma sessão com o error e redireciona
                     $this->session->set_flashdata('mensagem', $error);
                     redirect('Administracao/listar'); //se der certo manda para a lista
                     exit();
                 } else {
-                    //pega o nome do arquivo que foi enviado e adiciona no array $data para que a variavel
+//pega o nome do arquivo que foi enviado e adiciona no array $data para que a variavel
                     $fm['imagem'] = $this->upload->data('file_name');
                 }
 

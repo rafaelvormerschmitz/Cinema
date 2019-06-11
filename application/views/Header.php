@@ -11,17 +11,35 @@
             <nav class="navbar navbar-light bg-light navbar-expand-md">
                 <a class="navbar-brand" href="<?= $this->config->base_url(); ?>">
                     <i class="fas fa-home"></i>
-                    Cadastro de Filmes
+                    Cinema
                 </a>
                 <div class="collapse navbar-collapse">
                     <ul class="navbar-nav mr-auto">                
                         <li class="nav-item dropdown">
-                            <a href="#" id="menuProva" class="nav-link dropdown-toggle" data-toggle="dropdown">
+                            <a href="#" id="menuFilme" class="nav-link dropdown-toggle" data-toggle="dropdown">
                                 Filmes
                             </a>
-                            <div class="dropdown-menu" aria-labelledby="menuadministracao">
+                            <div class="dropdown-menu" aria-labelledby="menuFilme">
                                 <a href="<?= $this->config->base_url() . 'administracao/listar'; ?>" class="dropdown-item">Listar</a>
                                 <a href="<?= $this->config->base_url() . 'administracao/cadastrar'; ?>" class="dropdown-item">Cadastrar</a>
+                            </div>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a href="#" id="menuIngresso" class="nav-link dropdown-toggle" data-toggle="dropdown">
+                                Ingressos
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="menuingresso">
+                                <a href="<?= $this->config->base_url() . 'ingresso/listar'; ?>" class="dropdown-item">Listar</a>
+                                <a href="<?= $this->config->base_url() . 'ingresso/cadastrar'; ?>" class="dropdown-item">Cadastrar</a>
+                            </div>
+                        </li>             
+                        <li class="nav-item dropdown">
+                            <a href="#" id="menuCliente" class="nav-link dropdown-toggle" data-toggle="dropdown">
+                                Clientes
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="menuCliente">
+                                <a href="<?= $this->config->base_url() . 'clientes/listar'; ?>" class="dropdown-item">Listar</a>
+                                <a href="<?= $this->config->base_url() . 'clientes/cadastrar'; ?>" class="dropdown-item">Cadastrar</a>
                             </div>
                         </li>
                     </ul>
