@@ -38,8 +38,8 @@
                                 Clientes
                             </a>
                             <div class="dropdown-menu" aria-labelledby="menuCliente">
-                                <a href="<?= $this->config->base_url() . 'clientes/listar'; ?>" class="dropdown-item">Listar</a>
-                                <a href="<?= $this->config->base_url() . 'clientes/cadastrar'; ?>" class="dropdown-item">Cadastrar</a>
+                                <a href="<?= $this->config->base_url() . 'cliente/listar'; ?>" class="dropdown-item">Listar</a>
+                                <a href="<?= $this->config->base_url() . 'cliente/cadastrar'; ?>" class="dropdown-item">Cadastrar</a>
                             </div>
                         </li>
                     </ul>

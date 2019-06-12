@@ -20,7 +20,7 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="classificacao"> Classificação::</label>
+                    <label for="classificacao"> Classificação:</label>
                     <input type="text" name = "classificacao"  class="form-control" id="classificacao" value="<?= (isset($administracao)) ? $administracao->classificacao : ''; ?>">
                 </div>
 
@@ -51,7 +51,7 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="tx_status"> Status:</label>
+                    <label for="tx_status"> Status do Filme:</label>
                     <input type="text" name="tx_status"  class="form-control" id="tx_status" value="<?= (isset($administracao)) ? $administracao->tx_status : ''; ?>">
                 </div>
 
