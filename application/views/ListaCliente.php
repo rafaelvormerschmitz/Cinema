@@ -40,8 +40,8 @@
                         echo '<td>' . $cn->email . '</td>';
                         echo '<td>' . $cn->nascimento . '</td>';
                         echo '<td>'
-                        . '<a class="btn btn-outline-light" href="' . base_url('cliente/alterar/' . $cn->nome) . '"> <i class="fas fa-exchange-alt"></i>  Alterar</a>'
-                        . '<a class="btn btn-danger" href="' . base_url('cliente/deletar/' . $cn->nome) . '"> <i class="fas fa-trash-alt"></i>    Deletar</a>'
+                        . '<a class="btn btn-outline-light" href="' . base_url('cliente/alterar/' . $cn->id_cliente) . '"> <i class="fas fa-exchange-alt"></i>  Alterar</a>'
+                        . '<a class="btn btn-danger" href="' . base_url('cliente/deletar/' . $cn->id_cliente) . '"> <i class="fas fa-trash-alt"></i>    Deletar</a>'
                         . '</td>';
                         echo '</tr>';
                     }

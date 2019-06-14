@@ -24,6 +24,7 @@
                                 <a href="<?= $this->config->base_url() . 'administracao/cadastrar'; ?>" class="dropdown-item">Cadastrar</a>
                             </div>
                         </li>
+
                         <li class="nav-item dropdown">
                             <a href="#" id="menuIngresso" class="nav-link dropdown-toggle" data-toggle="dropdown">
                                 Ingressos
@@ -32,7 +33,8 @@
                                 <a href="<?= $this->config->base_url() . 'ingresso/listar'; ?>" class="dropdown-item">Listar</a>
                                 <a href="<?= $this->config->base_url() . 'ingresso/cadastrar'; ?>" class="dropdown-item">Cadastrar</a>
                             </div>
-                        </li>             
+                        </li>    
+
                         <li class="nav-item dropdown">
                             <a href="#" id="menuCliente" class="nav-link dropdown-toggle" data-toggle="dropdown">
                                 Clientes
@@ -41,6 +43,17 @@
                                 <a href="<?= $this->config->base_url() . 'cliente/listar'; ?>" class="dropdown-item">Listar</a>
                                 <a href="<?= $this->config->base_url() . 'cliente/cadastrar'; ?>" class="dropdown-item">Cadastrar</a>
                             </div>
+                        </li> 
+
+                        <li class="nav-item dropdown">
+                            <a href="#" id="menuFuncionario" class="nav-link dropdown-toggle" data-toggle="dropdown">
+                                Funcionários
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="menufuncionario">
+                                <a href="<?= $this->config->base_url() . 'funcionario/listar'; ?>" class="dropdown-item">Listar</a>
+                                <a href="<?= $this->config->base_url() . 'funcionario/cadastrar'; ?>" class="dropdown-item">Cadastrar</a>
+                            </div>
+                        </li>   
                         </li>
                     </ul>
                 </div>

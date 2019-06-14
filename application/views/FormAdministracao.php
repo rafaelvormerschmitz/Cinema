@@ -7,11 +7,16 @@
             ?>  
             <?php echo validation_errors(); ?>
             <form action = "" method = "post" enctype="multipart/form-data">
-                <input type="hidden" name="id" value="<?= (isset($administracao)) ? $administracao->id : ''; ?>">
+                <input type="hidden" name="id" value="<?= (isset($administracao)) ? $administracao->id_filme: ''; ?>">
 
                 <div class="form-group">
                     <label for="tx_nome"> Nome:</label>
                     <input type="text" name="tx_nome"  class="form-control" id="tx_nome" value="<?= (isset($administracao)) ? $administracao->tx_nome : ''; ?>">
+                </div>
+
+                <div class="form-group">
+                    <label for="sp_sinopse"> Sinopse:</label>
+                    <input type="text" name="sp_sinopse"  class="form-control" id="sp_sinopse" value="<?= (isset($administracao)) ? $administracao->sp_sinopse : ''; ?>">
                 </div>
 
                 <div class="form-group">
@@ -22,12 +27,6 @@
                 <div class="form-group">
                     <label for="classificacao"> Classificação:</label>
                     <input type="text" name = "classificacao"  class="form-control" id="classificacao" value="<?= (isset($administracao)) ? $administracao->classificacao : ''; ?>">
-                </div>
-
-
-                <div class="form-group">
-                    <label for="sp_sinopse"> Sinopse:</label>
-                    <input type="text" name="sp_sinopse"  class="form-control" id="sp_sinopse" value="<?= (isset($administracao)) ? $administracao->sp_sinopse : ''; ?>">
                 </div>
 
                 <div class="form-group">
@@ -41,6 +40,11 @@
                 </div>
 
                 <div class="form-group">
+                    <label for="tx_status"> Status do Filme:</label>
+                    <input type="text" name="tx_status"  class="form-control" id="tx_status" value="<?= (isset($administracao)) ? $administracao->tx_status : ''; ?>">
+                </div>
+
+                <div class="form-group">
                     <label for="tx_diretor"> Diretor:</label>
                     <input type="text" name="tx_diretor"  class="form-control" id="tx_diretor" value="<?= (isset($administracao)) ? $administracao->tx_diretor : ''; ?>">
                 </div>
@@ -48,11 +52,6 @@
                 <div class="form-group">
                     <label for="atores"> Atores:</label>
                     <input type="text" name="atores"  class="form-control" id="atores" value="<?= (isset($administracao)) ? $administracao->atores : ''; ?>">
-                </div>
-
-                <div class="form-group">
-                    <label for="tx_status"> Status do Filme:</label>
-                    <input type="text" name="tx_status"  class="form-control" id="tx_status" value="<?= (isset($administracao)) ? $administracao->tx_status : ''; ?>">
                 </div>
 
                 <div class="form-group">

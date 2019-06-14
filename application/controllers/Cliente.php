@@ -36,9 +36,8 @@ class Cliente extends CI_Controller {
         $this->form_validation->set_rules('nascimento', 'nascimento', 'required');
 
         if ($this->form_validation->run() === FALSE) {
-            $cl['cliente'] = $this->Cliente_model->getAll();
             $this->load->view('Header');
-            $this->load->view('FormCliente', $cl);
+            $this->load->view('FormCliente');
             $this->load->view('Footer');
         } else {
             $cl = array(
