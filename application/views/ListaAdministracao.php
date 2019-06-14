@@ -10,7 +10,7 @@
             <div class="card-header">
                 <h2 id="label-form"><i class="fas fa-edit"></i>Lista de Filmes</h2>
             </div>
-            <div class='card-body'>
+            <div class='card-body '>
                 <div class="table-responsive">
                     <table class="table table-striped table-dark">
                         <thead  class="thead-dark">
