@@ -20,6 +20,7 @@
                                 Filmes
                             </a>
                             <div class="dropdown-menu" aria-labelledby="menuFilme">
+                                <span class="navbar-toggler-icon"></span>
                                 <a href="<?= $this->config->base_url() . 'administracao/listar'; ?>" class="dropdown-item">Listar</a>
                                 <a href="<?= $this->config->base_url() . 'administracao/cadastrar'; ?>" class="dropdown-item">Cadastrar</a>
                             </div>
@@ -53,9 +54,21 @@
                                 <a href="<?= $this->config->base_url() . 'funcionario/listar'; ?>" class="dropdown-item">Listar</a>
                                 <a href="<?= $this->config->base_url() . 'funcionario/cadastrar'; ?>" class="dropdown-item">Cadastrar</a>
                             </div>
-                        </li>   
-                        </li>
+                        </li> 
                     </ul>
+
+                    <ul class="navbar-nav justify-content-end">
+                        <li class="nav-item dropdown">
+                            <a href="#" id="menuUsuario" class="nav-link dropdown-toggle" data-toggle="dropdown">
+                                Usuário
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="menuUsuario">
+                                <a href="<?= $this->config->base_url() . 'usuario/listar'; ?>" class="dropdown-item">Listar</a>
+                                <a href="<?= $this->config->base_url() . 'usuario/cadastrar'; ?>" class="dropdown-item">Cadastrar</a>
+                            </div>
+                        </li> 
+                    </ul>
+
                 </div>
             </nav>
         </div>
