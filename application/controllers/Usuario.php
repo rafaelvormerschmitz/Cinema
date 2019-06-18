@@ -5,7 +5,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Usuario extends CI_Controller {
 
     public function index() {
-        $this->listar();
+        $this->load->view('Login');
     }
 
     public function __construct() {
@@ -15,34 +15,50 @@ class Usuario extends CI_Controller {
         $this->load->model('Usuario_model');
     }
 
-    public function listar() {
-        $us['usuario'] = $this->Usuario_model->getAll();
-        $this->load->view('Header');
-        $this->load->view('ListaUsuario', $us);
-        $this->load->view('Footer');
+    public function login() {
+        $this->form_validation->set_rules('nome', 'nome', 'required');
+        $this->form_validation->set_rules('email', 'email', 'required');
+        $this->form_validation->set_rules('senha', 'senha', 'required');
+
+        if ($this->form_validation->run() == false) {
+            $this->load->view('Login');
+        } else {
+            $this->load->model('Usuario_model');
+            $usuario = $this->Usuario_model->getUsuario(
+                    $this->input->post('email'), $this->input->post('senha')
+            );
+            if ($usuario) {
+                $data = array(
+                    'idUsuario' => $usuario->id,
+                    'email' => $usuario->email,
+                    'logado' => true
+                );
+                $this->session->set_userdata($data);
+                redirect($this->config->base_url());
+            } else {
+                $this->session->set_flashdata('mensagem', 'Usuário e Senha Incorreto!');
+                redirect($this->config->base_url() . 'Usuario/login');
+            }
+        }
     }
 
     public function cadastrar() {
 
         $this->form_validation->set_rules('nome', 'nome', 'required');
-        $this->form_validation->set_rules('email', 'email', 'required');
+        $this->form_validation->set_rules('email', 'email', 'required|is_unique[tb_usuario.email]');
         $this->form_validation->set_rules('senha', 'senha', 'required');
-        $this->form_validation->set_rules('status', 'status', 'required');
 
         if ($this->form_validation->run() === FALSE) {
-            $this->load->view('Header');
-            $this->load->view('FormUsuario');
-            $this->load->view('Footer');
+            $this->load->view('Cadastrar');
         } else {
-            $us = array(
+            $cd = array(
                 'nome' => $this->input->post('nome'),
                 'email' => $this->input->post('email'),
                 'senha' => $this->input->post('senha'),
-                'status' => $this->input->post('status'),
             );
-            if ($this->Usuario_model->insert($us)) {
+            if ($this->Usuario_model->insert($cd)) {
                 $this->session->set_flashdata('mensagem', 'Cadastrado com sucesso!!');
-                redirect('Usuario/listar');
+                redirect('Usuario/login');
             } else {
                 redirect('Usuario/cadastrar');
                 $this->session->set_flashdata('mensagem', 'Erro ao cadastrar!!');
@@ -50,50 +66,9 @@ class Usuario extends CI_Controller {
         }
     }
 
-    public function alterar($id) {
-        if ($id > 0) {
-
-            $this->form_validation->set_rules('nome', 'nome', 'required');
-            $this->form_validation->set_rules('email', 'email', 'required');
-            $this->form_validation->set_rules('senha', 'senha', 'required');
-            $this->form_validation->set_rules('status', 'status', 'required');
-
-            if ($this->form_validation->run() === false) {
-                $us['usuario'] = $this->Usuario_model->getOne($id);
-                $this->load->view('Header');
-                $this->load->view('FormUsuario', $us);
-                $this->load->view('Footer');
-            } else {
-                $us = array(
-                    'nome' => $this->input->post('nome'),
-                    'email' => $this->input->post('email'),
-                    'senha' => $this->input->post('senha'),
-                    'status' => $this->input->post('status'),
-                );
-
-                if ($this->Usuario_model->update($id, $us)) {
-                    $this->session->set_flashdata('mensagem', 'Alteração com sucesso!!!');
-                    redirect('Usuario/listar');
-                } else {
-                    $this->session->set_flashdata('mensagem', 'Erro ao alterar!!!');
-                    redirect('Usuario/alterar/' . $id);
-                }
-            }
-        } else {
-            redirect('Usuario/listar');
-        }
-    }
-
-    public
-            function deletar($id) {
-        if ($id > 0) {
-            if ($this->Usuario_model->delete($id)) {
-                $this->session->set_flashdata('mensagem', 'Deletado com sucesso!');
-            } else {
-                $this->session->set_flashdata('mensagem', 'Falha ao deletar!');
-            }
-        }
-        redirect('Usuario/listar');
+    public function sair() {
+        $this->session->sess_destroy();
+        redirect($this->config->base_url());
     }
 
 }

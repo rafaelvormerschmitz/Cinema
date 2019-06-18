@@ -13,6 +13,8 @@ class Administracao extends CI_Controller {
         $this->load->helper(array('form', 'url'));
         $this->load->library('form_validation');
         $this->load->model('Administracao_model');
+        $this->load->model('Usuario_model');
+        $this->Usuario_model->verificaLogin();
     }
 
     public function listar() {
