@@ -63,12 +63,10 @@
                                 Usuário
                             </a>
                             <div class="dropdown-menu" aria-labelledby="menuUsuario">
-                                <a href="<?= $this->config->base_url() . 'usuario/listar'; ?>" class="dropdown-item">Listar</a>
                                 <a href="<?= $this->config->base_url() . 'usuario/cadastrar'; ?>" class="dropdown-item">Cadastrar</a>
                             </div>
                         </li> 
                     </ul>
-
                 </div>
             </nav>
         </div>

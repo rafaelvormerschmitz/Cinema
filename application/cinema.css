@@ -1,6 +1,17 @@
-#sociais {
-    text-align: center;
-    font-family: Tahoma;
-    font-size: 25px;
-
+#baner{
+    width: 980px;
+    height: 250px;
+    margin: 0 auto;
+    padding-top: 100px;
+}
+#baner img{
+    width: 968px;
+    height: 190px;
+    border: 5px solid white;
+}
+.img{
+    float: left;
+    width: 230px;
+    margin-right: 19px;
+    color:black;
 }

@@ -16,7 +16,6 @@ class Usuario extends CI_Controller {
     }
 
     public function login() {
-        $this->form_validation->set_rules('nome', 'nome', 'required');
         $this->form_validation->set_rules('email', 'email', 'required');
         $this->form_validation->set_rules('senha', 'senha', 'required');
 
@@ -28,13 +27,14 @@ class Usuario extends CI_Controller {
                     $this->input->post('email'), $this->input->post('senha')
             );
             if ($usuario) {
+
                 $data = array(
-                    'idUsuario' => $usuario->id,
+                    'idUsuario' => $usuario->id_usuario,
                     'email' => $usuario->email,
                     'logado' => true
                 );
                 $this->session->set_userdata($data);
-                redirect($this->config->base_url());
+                redirect('administracao/listar');
             } else {
                 $this->session->set_flashdata('mensagem', 'Usuário e Senha Incorreto!');
                 redirect($this->config->base_url() . 'Usuario/login');
