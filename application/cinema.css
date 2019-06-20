@@ -1,17 +1,38 @@
-#baner{
-    width: 980px;
-    height: 250px;
-    margin: 0 auto;
-    padding-top: 100px;
+#sociais {
+    text-align: center;
+    font-family: Tahoma;
+    font-size: 25px;
 }
-#baner img{
-    width: 968px;
-    height: 190px;
-    border: 5px solid white;
+h1 {
+    color: orange;
 }
-.img{
+#menu ul {
+    padding:0px;
+    margin:0px;
     float: left;
-    width: 230px;
-    margin-right: 19px;
-    color:black;
+    width: 100%;
+    background-color:#EDEDED;
+    list-style:none;
+    font:110% Tahoma;
+
+}
+#menu ul li { display: inline; }
+#menu ul li a {
+    background-color:#EDEDED;
+    color: #333;
+    text-decoration: none;
+    border-bottom:3px solid #EDEDED;
+    width: 25%;
+    float:left;
+    text-align: center;
+}
+#menu ul li a:hover {
+    background-color:#D6D6D6;
+    color: #6D6D6D;
+    border-bottom:3px solid #EA0000;
+}
+@media only screen and (max-width: 600px){
+    #sociais{
+        display: none; 
+    }
 }

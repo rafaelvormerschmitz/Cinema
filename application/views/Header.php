@@ -9,7 +9,7 @@
     <body>
         <div class="container">
             <nav class="navbar navbar-light bg-light navbar-expand-md">
-                <a class="navbar-brand" href="<?= $this->config->base_url(); ?>">
+                <a class="navbar-brand" href="<?= $this->config->base_url() . 'administracao/listar'; ?>">
                     <i class="fas fa-home"></i>
                     Cinema
                 </a>
