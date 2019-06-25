@@ -55,6 +55,15 @@
                                 <a href="<?= $this->config->base_url() . 'funcionario/cadastrar'; ?>" class="dropdown-item">Cadastrar</a>
                             </div>
                         </li> 
+                        <li class="nav-item dropdown">
+                            <a href="#" id="menuPromocao" class="nav-link dropdown-toggle" data-toggle="dropdown">
+                                Promoções
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="menupromocao">
+                                <a href="<?= $this->config->base_url() . 'promocao/listar'; ?>" class="dropdown-item">Listar</a>
+                                <a href="<?= $this->config->base_url() . 'promocao/cadastrar'; ?>" class="dropdown-item">Cadastrar</a>
+                            </div>
+                        </li> 
                     </ul>
 
                     <ul class="navbar-nav justify-content-end">
