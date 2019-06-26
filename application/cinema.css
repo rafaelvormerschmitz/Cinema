@@ -6,6 +6,7 @@
 h1 {
     color: orange;
     font-family: Georgia, serif;
+    text-align: center;
 }
 #menu ul {
     padding:0px;
@@ -38,12 +39,42 @@ h1 {
     color: #6D6D6D;
     border-bottom:3px solid #EA0000;
 }
-b, span{
-    font-family: Courier New; 
+h4 {
+    color: black;
+    text-align: center;
+    width:200px;
+    height: 36px;
+    border: 2px solid; 
+    border-color: black;   
+    background: #D8D8D8;
 }
-h5{
-    font-family: monospace;
+h3{
+    text-align: center;
+    font-weight: bold;
 }
+b{
+    color: black;
+    text-align: center;
+    width:290px;
+    height: 26px;
+    border: 2px solid; 
+    border-color: black;   
+    background: #D8D8D8;  
+}
+span{
+    color: grey;
+}
+.linha{
+    border: 3px;
+}
+.propaganda{
+    display: flex;
+    display: -webkit-flex;
+    justify-content: center;
+    align-items: center;
+    background: #C4C4C4;
+}
+
 
 @media only screen and (max-width: 600px){
     #sociais{
