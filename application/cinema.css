@@ -48,18 +48,19 @@ h4 {
     border-color: black;   
     background: #D8D8D8;
 }
-h3{
+h5{
     text-align: center;
     font-weight: bold;
 }
-b{
+.sla{
     color: black;
     text-align: center;
-    width:290px;
+    width: 200px;
     height: 26px;
     border: 2px solid; 
     border-color: black;   
-    background: #D8D8D8;  
+    background: #ffa448;
+    border-radius: 30px;
 }
 span{
     color: grey;
@@ -72,10 +73,30 @@ span{
     display: -webkit-flex;
     justify-content: center;
     align-items: center;
-    background: #C4C4C4;
+    background: #EBEBEB;
+}
+h6{
+    text-align: justify;
+    font-weight: bold;
+}
+.imagem{
+    width: 254px;
+    height: 500px;
+}
+#rodape {
+    background: gray;
 }
 
-
+footer{
+    background:#c4c4c4; 
+}
+.promocao{
+    display: flex;
+    display: -webkit-flex;
+    justify-content: center;
+    align-items: center;
+    background: #EBEBEB;
+}
 @media only screen and (max-width: 600px){
     #sociais{
         display: none; 
