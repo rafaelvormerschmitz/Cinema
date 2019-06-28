@@ -97,6 +97,31 @@ footer{
     align-items: center;
     background: #EBEBEB;
 }
+.espaco2{
+    display: flex;
+    display: -webkit-flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    background: #EBEBEB;
+}
+label,
+textarea {
+    font-size: .8rem;
+    letter-spacing: 1px;
+}
+textarea {
+    padding: 10px;
+    line-height: 1.5;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    box-shadow: 1px 1px 1px #999;
+}
+
+label {
+    display: block;
+    margin-bottom: 10px;
+}
+
 @media only screen and (max-width: 600px){
     #sociais{
         display: none; 

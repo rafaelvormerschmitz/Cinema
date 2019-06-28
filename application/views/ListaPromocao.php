@@ -15,17 +15,16 @@
                         <thead  class="thead-dark">
                             <tr>
                                 <th scope="col"><i class="fas fa-anchor"></i> Descrição da Promoção</th>
-                                <th scope="col"> Valor da Promoção</th>
+                                <th scope="col"> Imagem</th>
                                 <th scope="col"><i class="fas fa-location-arrow"></i> Ações</th>
                             </tr>
                         </thead>
-
                         <tbody>
                             <?php
                             foreach ($promocao as $pr) {
                                 echo '<tr>';
                                 echo '<td>' . $pr->descricao . '</td>';
-                                echo '<td>' . $pr->valor . '</td>';
+                                 echo '<td> <img src="' . base_url('uploads/' . $pr->imagem) . '" height="50"></td>';
                                 echo '<td>'
                                 . '<a class="btn btn-outline-light" href="' . $this->config->base_url() . 'promocao/alterar/' . $pr->id_promocao . '"> <i class="fas fa-exchange-alt"></i>  Alterar</a>'
                                 . '<a class="btn btn-danger" href="' . $this->config->base_url() . 'promocao/deletar/' . $pr->id_promocao . '"> <i class="fas fa-trash-alt"></i>    Deletar</a>'

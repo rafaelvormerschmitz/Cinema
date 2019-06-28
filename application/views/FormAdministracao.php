@@ -63,6 +63,11 @@
                             <label for = "imagem"> Imagem:</label>
                             <input type="file" name="imagem"  class="form-control" id="imagem" value="">
                         </div>
+                        
+                        <div class="form-group">
+                            <label for="trailer"> Trailer:</label>
+                            <input type="text" name="trailer"  class="form-control" id="trailer" Placeholder="Link do Filme" value="<?= (isset($administracao)) ? $administracao->trailer : ''; ?>">
+                        </div>
 
                         <button type="submit" class="btn btn-success"><i class="fas fa-check"></i> Enviar</button>
                         <button type="reset" class="btn btn-outline-secondary"><i class="fas fa-redo"></i> Limpar</button> 

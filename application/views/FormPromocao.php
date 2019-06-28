@@ -19,9 +19,9 @@
                             <input type="text" name="descricao"  class="form-control" id="descricao" value="<?= (isset($promocao->descricao)) ? $promocao->descricao : ''; ?>">
                         </div>
 
-                        <div class="form-group">
-                            <label for="valor"> Valor da Promoção:</label>
-                            <input type="text" name="valor"  class="form-control" id="valor" value="<?= (isset($promocao->valor)) ? $promocao->valor : ''; ?>">
+                      <div class="form-group">
+                            <label for = "imagem"> Imagem:</label>
+                            <input type="file" name="imagem"  class="form-control" id="imagem" value="">
                         </div>
 
                         <button type="submit" class="btn btn-success"><i class="fas fa-check"></i> Enviar</button>

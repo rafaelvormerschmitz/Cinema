@@ -5,7 +5,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Administracao extends CI_Controller {
 
     public function index() {
-   exit;
+        exit;
         $this->listar();
     }
 
@@ -36,7 +36,7 @@ class Administracao extends CI_Controller {
         $this->form_validation->set_rules('tx_status', 'tx_status', 'required');
         $this->form_validation->set_rules('tx_diretor', 'tx_diretor', 'required');
         $this->form_validation->set_rules('atores', 'atores', 'required');
-
+        $this->form_validation->set_rules('trailer', 'trailer', 'required');
 
         if ($this->form_validation->run() === FALSE) {
             $this->load->view('Header');
@@ -54,6 +54,7 @@ class Administracao extends CI_Controller {
                 'tx_status' => $this->input->post('tx_status'),
                 'tx_diretor' => $this->input->post('tx_diretor'),
                 'tx_diretor' => $this->input->post('atores'),
+                'trailer' => $this->input->post('trailer'),
             );
 
             $config['upload_path'] = './uploads/';
@@ -96,6 +97,7 @@ class Administracao extends CI_Controller {
             $this->form_validation->set_rules('tx_status', 'tx_status', 'required');
             $this->form_validation->set_rules('tx_diretor', 'tx_diretor', 'required');
             $this->form_validation->set_rules('atores', 'atores', 'required');
+            $this->form_validation->set_rules('trailer', 'trailer', 'required');
 
             if ($this->form_validation->run() === false) {
                 $fm['administracao'] = $this->Administracao_model->getOne($id);
@@ -113,6 +115,7 @@ class Administracao extends CI_Controller {
                     'tx_status' => $this->input->post('tx_status'),
                     'tx_diretor' => $this->input->post('tx_diretor'),
                     'atores' => $this->input->post('atores'),
+                    'trailer' => $this->input->post('trailer'),
                 );
 
                 $config['upload_path'] = './uploads/';
@@ -154,6 +157,13 @@ class Administracao extends CI_Controller {
             }
         }
         redirect('Administracao/listar');
+    }
+
+    public function pagina() {
+        $fm['filme'] = $this->Administracao_model->getAll();
+        $this->load->view('Header');
+        $this->load->view('PaginaInicial', $fm);
+        $this->load->view('Footer');
     }
 
 }

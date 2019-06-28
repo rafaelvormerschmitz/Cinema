@@ -1,6 +1,6 @@
 <div class="container">
     <div class="conntainer">
-        
+
         <?php
         $mensagem = $this->session->flashdata('mensagem');
         echo (isset($mensagem) ? '<div class="alert alert-success" role="alert">' . $mensagem . '</div>' : '');
@@ -24,6 +24,7 @@
                                 <th scope="col"> Status</th>
                                 <th scope="col"> Diretor</th>        
                                 <th scope="col"> Atores</th>
+                                <th scope="col"> Trailer</th>
                                 <th scope="col"> Imagem</th>
                                 <th scope="col"> Ações</th>
                             </tr>
@@ -42,6 +43,7 @@
                                 echo '<td>' . $fm->tx_status . '</td>';
                                 echo '<td>' . $fm->tx_diretor . '</td>';
                                 echo '<td>' . $fm->atores . '</td>';
+                                echo '<td>' . $fm->trailer . '</td>';
                                 echo '<td> <img src="' . base_url('uploads/' . $fm->imagem) . '" height="50"></td>';
                                 echo '<td>'
                                 . '<a class="btn btn-outline-light" href="' . base_url('administracao/alterar/' . $fm->id_filme) . '"> <i class="fas fa-exchange-alt"></i>  Alterar</a>'
